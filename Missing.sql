@@ -1,12 +1,12 @@
 select cast(dbo.ToBdt(tt.CreatedOn)as date) [Date],
-	   w.Id [WarehouseID],
-	   w.Name [Warehouse],
-	   pv.Id [PVID],
-	   pv.Name [Product],
+	   w.Id 								[WarehouseID],
+	   w.Name 								[Warehouse],
+	   pv.Id 								[PVID],
+	   pv.Name 								[Product],
 	   Count(Case when tt.ToState in (16) 
 			 then pv.Id 
 			 else null end
-	   )[MissingQTY]
+	   )									[MissingQTY]
 
 from thing t
 join ThingEvent te on t.id = te.ThingId 
